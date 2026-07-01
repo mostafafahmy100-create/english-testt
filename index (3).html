@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr. Mostafa Nassar's English Placement Test</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@400;700&display=swap');
+
+  :root {
+    --navy: #1a2744;
+    --blue: #2563eb;
+    --sky: #38bdf8;
+    --gold: #f59e0b;
+    --mint: #10b981;
+    --rose: #f43f5e;
+    --light: #f0f6ff;
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #1a2744 0%, #2563eb 60%, #38bdf8 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    text-align: center;
+    color: white;
+    margin-bottom: 28px;
+    margin-top: 10px;
+  }
+  .site-header .logo-icon { font-size: 2.6rem; display: block; }
+  .site-header h1 {
+    font-size: 1.55rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  .site-header p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-top: 4px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    width: 100%;
+    max-width: 680px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    animation: slideUp 0.4s ease;
+  }
+  @keyframes slideUp {
+    from { opacity:0; transform:translateY(24px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  /* ── STUDENT INFO PAGE ── */
+  .page-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .page-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .field-group { margin-bottom: 18px; }
+  .field-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .field-group input, .field-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    color: var(--text);
+    transition: border-color 0.2s;
+    background: var(--light);
+  }
+  .field-group input:focus, .field-group select:focus {
+    outline: none;
+    border-color: var(--blue);
+    background: white;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 28px;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    color: white;
+    width: 100%;
+    margin-top: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,99,235,0.4); }
+  .btn-outline {
+    background: var(--light);
+    color: var(--navy);
+    border: 2px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), #d97706);
+    color: white;
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(245,158,11,0.4); }
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap {
+    margin-bottom: 24px;
+  }
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .progress-bar-bg {
+    height: 8px;
+    background: var(--border);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--sky));
+    border-radius: 99px;
+    transition: width 0.4s ease;
+  }
+
+  /* ── QUESTION SECTION ── */
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+  .badge-grammar { background: #eff6ff; color: #2563eb; }
+  .badge-vocab   { background: #f0fdf4; color: #059669; }
+  .badge-reading { background: #fef3c7; color: #d97706; }
+  .badge-listening { background: #fdf4ff; color: #9333ea; }
+  .badge-speaking  { background: #fff1f2; color: #f43f5e; }
+
+  .level-tag {
+    float: right;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 99px;
+    background: var(--navy);
+    color: white;
+    letter-spacing: 0.5px;
+  }
+
+  .q-text {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 18px;
+    clear: both;
+  }
+
+  /* ── READING PASSAGE ── */
+  .reading-passage {
+    background: var(--light);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 18px;
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text);
+    font-family: 'Merriweather', serif;
+  }
+
+  /* ── LISTENING ── */
+  .listen-box {
+    background: linear-gradient(135deg, #fdf4ff, #eff6ff);
+    border: 2px dashed #c084fc;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  .listen-box p { font-size: 0.85rem; color: #7c3aed; font-weight: 600; margin-bottom: 12px; }
+  .btn-listen {
+    background: linear-gradient(135deg, #9333ea, #7c3aed);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 99px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-listen:hover { transform: scale(1.04); }
+  .btn-listen:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* ── SPEAKING ── */
+  .speaking-passage {
+    background: linear-gradient(135deg, #fff1f2, #fef3c7);
+    border: 2px dashed #f43f5e;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .speaking-passage .sp-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #f43f5e;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .speaking-passage p {
+    font-family: 'Merriweather', serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text);
+  }
+  .record-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  .btn-record {
+    background: var(--rose);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 99px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-record.recording { background: #dc2626; animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+  .btn-record:disabled { opacity: 0.4; cursor: not-allowed; }
+  .record-status {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 8px;
+    font-weight: 600;
+  }
+  .record-status.active { color: var(--rose); }
+  audio { width: 100%; margin-top: 10px; border-radius: 8px; }
+
+  /* ── OPTIONS ── */
+  .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    background: white;
+    text-align: left;
+  }
+  .option:hover:not(.disabled) { border-color: var(--blue); background: var(--light); }
+  .option.selected { border-color: var(--blue); background: #eff6ff; }
+  .option.correct  { border-color: var(--mint); background: #f0fdf4; color: #065f46; }
+  .option.wrong    { border-color: var(--rose); background: #fff1f2; color: #9f1239; }
+  .option.disabled { cursor: not-allowed; }
+  .option-letter {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 800;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .option.selected .option-letter { background: var(--blue); color: white; }
+  .option.correct  .option-letter { background: var(--mint); color: white; }
+  .option.wrong    .option-letter { background: var(--rose); color: white; }
+
+  /* ── FEEDBACK ── */
+  .feedback-box {
+    display: none;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .feedback-box.correct-fb { background: #f0fdf4; color: #065f46; border: 1.5px solid #86efac; }
+  .feedback-box.wrong-fb   { background: #fff1f2; color: #9f1239; border: 1.5px solid #fda4af; }
+  .feedback-box .correct-ans { font-weight: 800; }
+
+  /* ── NAV BUTTONS ── */
+  .nav-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+  }
+  .nav-row .btn { flex: 1; }
+
+  /* ── RESULT PAGE ── */
+  .result-hero {
+    text-align: center;
+    padding: 8px 0 24px;
+  }
+  .result-icon { font-size: 4rem; display: block; margin-bottom: 12px; }
+  .result-level {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: 900;
+    padding: 8px 28px;
+    border-radius: 99px;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    color: white;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .result-score {
+    font-size: 1.05rem;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .result-stat {
+    background: var(--light);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .result-stat .s-num {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--navy);
+  }
+  .result-stat .s-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .level-desc {
+    background: var(--light);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--blue);
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0 16px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .section-divider::before, .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-thumb { background: #c7d2fe; border-radius: 99px; }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 480px) {
+    .card { padding: 22px 16px; }
+    .result-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="site-header">
+  <span class="logo-icon">📚</span>
+  <h1>Mr. Mostafa Nassar's<br>English World</h1>
+  <p>Official Placement Test — A2 to B2</p>
+</div>
+
+<!-- CARD -->
+<div class="card" id="mainCard">
+
+  <!-- ══ PAGE 1: STUDENT INFO ══ -->
+  <div id="pageInfo">
+    <p class="page-title">👋 Student Information</p>
+    <p class="page-sub">Please fill in your details before starting the test.</p>
+
+    <div class="field-group">
+      <label>Full Name</label>
+      <input type="text" id="studentName" placeholder="e.g. Ahmed Mohamed" />
+    </div>
+    <div class="field-group">
+      <label>Age</label>
+      <input type="number" id="studentAge" placeholder="e.g. 14" min="8" max="99" />
+    </div>
+    <div class="field-group">
+      <label>Phone Number <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <input type="tel" id="studentPhone" placeholder="e.g. 01012345678" />
+    </div>
+    <div class="field-group">
+      <label>Grade / School Year <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <select id="studentGrade">
+        <option value="">— Select your grade —</option>
+        <option>Grade 5</option><option>Grade 6</option>
+        <option>Grade 7</option><option>Grade 8</option>
+        <option>Grade 9</option><option>Grade 10</option>
+        <option>Grade 11</option><option>Grade 12</option>
+        <option>University / Adult</option>
+      </select>
+    </div>
+
+    <div class="section-divider">Test Information</div>
+    <div style="background:var(--light);border-radius:12px;padding:14px 16px;font-size:0.85rem;color:var(--muted);line-height:1.7;margin-bottom:20px;">
+      📝 <b>25 questions</b> — Grammar, Vocabulary, Reading, Listening & Speaking<br>
+      🎧 Use headphones for the Listening section<br>
+      🎤 You will read a short passage aloud in the Speaking section<br>
+      ✅ Correct answers shown after each question
+    </div>
+
+    <button class="btn btn-primary" onclick="startTest()">Start the Test →</button>
+  </div>
+
+  <!-- ══ PAGE 2: QUESTIONS ══ -->
+  <div id="pageTest" class="hidden">
+    <div class="progress-wrap">
+      <div class="progress-info">
+        <span id="qCounter">Question 1 of 25</span>
+        <span id="qScore">Score: 0</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressFill" style="width:4%"></div>
+      </div>
+    </div>
+
+    <div id="questionArea"></div>
+
+    <div class="nav-row">
+      <button class="btn btn-outline" id="btnPrev" onclick="goQuestion(currentQ-1)" style="display:none">← Back</button>
+      <button class="btn btn-primary" id="btnNext" onclick="handleNext()" disabled>Next →</button>
+    </div>
+  </div>
+
+  <!-- ══ PAGE 3: RESULT ══ -->
+  <div id="pageResult" class="hidden">
+    <div class="result-hero">
+      <span class="result-icon" id="resIcon">🏆</span>
+      <div class="result-level" id="resLevel">B1</div>
+      <div class="result-score" id="resScore">You answered 18 out of 25 correctly</div>
+    </div>
+
+    <div class="result-grid">
+      <div class="result-stat">
+        <div class="s-num" id="rCorrect">0</div>
+        <div class="s-label">Correct</div>
+      </div>
+      <div class="result-stat">
+        <div class="s-num" id="rWrong">0</div>
+        <div class="s-label">Wrong</div>
+      </div>
+      <div class="result-stat">
+        <div class="s-num" id="rSkipped">0</div>
+        <div class="s-label">Skipped</div>
+      </div>
+      <div class="result-stat">
+        <div class="s-num" id="rPercent">0%</div>
+        <div class="s-label">Percentage</div>
+      </div>
+      <div class="result-stat">
+        <div class="s-num" id="rTime">0m</div>
+        <div class="s-label">Time Taken</div>
+      </div>
+    </div>
+
+    <div class="level-desc" id="levelDesc"></div>
+
+    <div id="submitStatus" style="margin-top:8px;"></div>
+
+  </div>
+
+</div><!-- /card -->
+
+<script>
+// ══════════════════════════════════════════
+//  ONE-TIME LOCK via localStorage
+// ══════════════════════════════════════════
+(function() {
+  if (localStorage.getItem('mntest_done') === 'yes') {
+    document.getElementById('pageInfo').classList.add('hidden');
+    document.getElementById('pageTest').classList.add('hidden');
+    document.getElementById('pageResult').classList.add('hidden');
+    document.getElementById('mainCard').innerHTML = `
+      <div style="text-align:center;padding:40px 20px;">
+        <div style="font-size:3.5rem;margin-bottom:16px;">✅</div>
+        <h2 style="color:var(--navy);font-size:1.3rem;font-weight:900;margin-bottom:10px;">
+          Test Already Completed / تم إجراء الاختبار من قبل
+        </h2>
+        <p style="color:var(--muted);font-size:0.92rem;line-height:1.7;margin-bottom:20px;">
+          You already took this test. Your result has been sent to <b>Mr. Mostafa Nassar</b>.<br>
+          لقد قمت بحل هذا الاختبار من قبل، وتم إرسال نتيجتك إلى <b>الأستاذ مصطفى نصار</b>.
+        </p>
+        <div style="background:var(--light);border-radius:12px;padding:16px;font-size:0.92rem;color:var(--navy);font-weight:800;margin-bottom:8px;">
+          🏆 Your result was / نتيجتك كانت: <span style="color:var(--blue)">${localStorage.getItem('mntest_result') || 'N/A'}</span>
+        </div>
+        <div style="background:var(--light);border-radius:12px;padding:12px;font-size:0.82rem;color:var(--navy);font-weight:700;margin-bottom:24px;">
+          📬 Submitted on / بتاريخ: <span style="color:var(--blue)">${localStorage.getItem('mntest_date') || 'N/A'}</span>
+        </div>
+        <p style="color:var(--muted);font-size:0.88rem;margin-bottom:14px;">
+          Do you want to retake the test? / هل تريد إعادة الاختبار؟
+        </p>
+        <button onclick="retakeTest()" style="background:linear-gradient(135deg,#1a2744,#2563eb);color:white;border:none;border-radius:10px;padding:12px 28px;font-family:Nunito,sans-serif;font-size:0.95rem;font-weight:800;cursor:pointer;width:100%;">
+          🔄 Retake Test / إعادة الامتحان
+        </button>
+      </div>`;
+;
+  }
+})();
+
+// ══════════════════════════════════════════
+//  DATA — 25 QUESTIONS  (A2 → B2)
+// ══════════════════════════════════════════
+const questions = [
+  // ── GRAMMAR A2 (1-5) ──
+  {
+    type: "mcq", section: "grammar", level: "A2",
+    text: "She _____ to school every day.",
+    options: ["go","goes","going","gone"], correct: 1,
+    explanation: "With 'she' (third person singular), we add -s: 'goes'."
+  },
+  {
+    type: "mcq", section: "grammar", level: "A2",
+    text: "There _____ a lot of students in the classroom right now.",
+    options: ["is","are","was","be"], correct: 1,
+    explanation: "'Students' is plural, so we use 'are'."
+  },
+  {
+    type: "mcq", section: "grammar", level: "A2",
+    text: "I _____ watching TV when the phone rang.",
+    options: ["am","was","were","be"], correct: 1,
+    explanation: "Past continuous for an action in progress: 'was watching'."
+  },
+  {
+    type: "mcq", section: "grammar", level: "A2",
+    text: "_____ your parents at home yesterday?",
+    options: ["Was","Were","Are","Is"], correct: 1,
+    explanation: "'Parents' is plural → past tense → 'Were'."
+  },
+  {
+    type: "mcq", section: "grammar", level: "A2",
+    text: "He doesn't have _____ money in his wallet.",
+    options: ["some","many","any","few"], correct: 2,
+    explanation: "With negatives, we use 'any': 'doesn't have any'."
+  },
+
+  // ── VOCABULARY A2–B1 (6-10) ──
+  {
+    type: "mcq", section: "vocab", level: "A2",
+    text: "Choose the word that means 'very happy'.",
+    options: ["anxious","delighted","exhausted","bored"], correct: 1,
+    explanation: "'Delighted' means extremely pleased or happy."
+  },
+  {
+    type: "mcq", section: "vocab", level: "B1",
+    text: "The opposite of 'ancient' is _____ .",
+    options: ["old","historical","modern","antique"], correct: 2,
+    explanation: "'Modern' means new or contemporary — opposite of ancient."
+  },
+  {
+    type: "mcq", section: "vocab", level: "B1",
+    text: "She gave a _____ speech that moved the whole audience to tears.",
+    options: ["boring","powerful","quiet","short"], correct: 1,
+    explanation: "A 'powerful' speech has strong emotional impact."
+  },
+  {
+    type: "mcq", section: "vocab", level: "B1",
+    text: "The doctor advised him to _____ his diet and eat more vegetables.",
+    options: ["ignore","destroy","improve","forget"], correct: 2,
+    explanation: "'Improve' means to make something better."
+  },
+  {
+    type: "mcq", section: "vocab", level: "B2",
+    text: "The scientist made a _____ discovery that changed medicine forever.",
+    options: ["trivial","groundbreaking","ordinary","random"], correct: 1,
+    explanation: "'Groundbreaking' means innovative and completely new."
+  },
+
+  // ── GRAMMAR B1 (11-14) ──
+  {
+    type: "mcq", section: "grammar", level: "B1",
+    text: "By the time we arrived, the movie _____ already _____ .",
+    options: ["has / started","had / started","was / start","have / started"], correct: 1,
+    explanation: "Past perfect: 'had already started' — action completed before another past event."
+  },
+  {
+    type: "mcq", section: "grammar", level: "B1",
+    text: "If I _____ more time, I would study abroad.",
+    options: ["have","had","will have","has"], correct: 1,
+    explanation: "Second conditional: 'If I had…, I would…' (hypothetical)."
+  },
+  {
+    type: "mcq", section: "grammar", level: "B1",
+    text: "She asked me where _____ from.",
+    options: ["I came","did I come","I come","come I"], correct: 0,
+    explanation: "In reported speech, we don't invert subject-verb: 'where I came from'."
+  },
+  {
+    type: "mcq", section: "grammar", level: "B1",
+    text: "The report _____ by the manager before the meeting started.",
+    options: ["wrote","was written","has written","is writing"], correct: 1,
+    explanation: "Passive voice, past simple: 'was written'."
+  },
+
+  // ── LISTENING — A2/B1 (15-17) ──
+  {
+    type: "listening", section: "listening", level: "A2",
+    audio: "Hi! My name is Sara. I'm 15 years old and I live in Cairo. My favourite subject at school is English because I love reading books and watching films in English.",
+    text: "Listen carefully, then answer: What is Sara's favourite subject?",
+    options: ["Maths","Science","English","History"], correct: 2,
+    explanation: "Sara says: 'My favourite subject at school is English'."
+  },
+  {
+    type: "listening", section: "listening", level: "B1",
+    audio: "The conference on climate change will take place next Friday at the Grand Hotel. Speakers from over twenty countries will discuss renewable energy solutions and sustainable development goals.",
+    text: "Listen carefully, then answer: What is the main topic of the conference?",
+    options: ["Tourism","Technology","Climate change and renewable energy","Fashion"],
+    correct: 2,
+    explanation: "The conference focuses on climate change and renewable energy solutions."
+  },
+  {
+    type: "listening", section: "listening", level: "B1",
+    audio: "Although the project was challenging, our team managed to finish it two days ahead of schedule. The client was extremely satisfied with the results and has already requested a follow-up project.",
+    text: "Listen carefully, then answer: How did the team complete the project?",
+    options: [
+      "Late and the client was unhappy",
+      "On time with average results",
+      "Two days early and the client was very pleased",
+      "They could not finish it"
+    ], correct: 2,
+    explanation: "They finished two days ahead of schedule and the client was extremely satisfied."
+  },
+
+  // ── READING (18-21) ──
+  {
+    type: "reading", section: "reading", level: "B1",
+    passage: "Social media has changed the way people communicate and share information. While it connects millions of people around the world, it also has some disadvantages. Many teenagers spend hours scrolling through their feeds, which can affect their sleep, attention span, and mental health. Experts recommend limiting screen time and taking regular breaks from social media.",
+    text: "According to the passage, what do experts recommend?",
+    options: [
+      "Using social media all day",
+      "Deleting all social media accounts",
+      "Limiting screen time and taking breaks",
+      "Only using social media at night"
+    ], correct: 2,
+    explanation: "The passage states: 'Experts recommend limiting screen time and taking regular breaks'."
+  },
+  {
+    type: "reading", section: "reading", level: "B1",
+    passage: "Social media has changed the way people communicate and share information. While it connects millions of people around the world, it also has some disadvantages. Many teenagers spend hours scrolling through their feeds, which can affect their sleep, attention span, and mental health. Experts recommend limiting screen time and taking regular breaks from social media.",
+    text: "Which of the following is listed as a negative effect of social media on teenagers?",
+    options: ["Improved memory","Better communication","Affected sleep and mental health","Higher grades"],
+    correct: 2,
+    explanation: "The passage mentions effects on sleep, attention span, and mental health."
+  },
+  {
+    type: "reading", section: "reading", level: "B2",
+    passage: "The Industrial Revolution, which began in Britain in the late 18th century, fundamentally transformed society. Technological innovations such as the steam engine enabled mass production, urbanisation increased rapidly, and traditional agricultural communities gave way to industrial cities. However, this progress came at a significant human cost: poor working conditions, child labour, and environmental pollution were widespread.",
+    text: "What does the passage suggest about the Industrial Revolution?",
+    options: [
+      "It only brought positive changes to society",
+      "It had both benefits and serious social costs",
+      "It started in France in the 19th century",
+      "It had no impact on agriculture"
+    ], correct: 1,
+    explanation: "The passage describes both transformation (benefits) and significant human cost."
+  },
+  {
+    type: "reading", section: "reading", level: "B2",
+    passage: "The Industrial Revolution, which began in Britain in the late 18th century, fundamentally transformed society. Technological innovations such as the steam engine enabled mass production, urbanisation increased rapidly, and traditional agricultural communities gave way to industrial cities. However, this progress came at a significant human cost: poor working conditions, child labour, and environmental pollution were widespread.",
+    text: "The word 'urbanisation' in the passage most likely means:",
+    options: [
+      "The decline of cities",
+      "The growth of rural areas",
+      "The rapid growth of towns and cities",
+      "The spread of agriculture"
+    ], correct: 2,
+    explanation: "'Urbanisation' refers to the process of people moving to cities, causing them to grow."
+  },
+
+  // ── GRAMMAR B2 (22-23) ──
+  {
+    type: "mcq", section: "grammar", level: "B2",
+    text: "_____ she studied hard, she failed the exam.",
+    options: ["Despite","Although","Because of","So that"], correct: 1,
+    explanation: "'Although' introduces a contrast clause with a subject + verb: 'Although she studied hard'."
+  },
+  {
+    type: "mcq", section: "grammar", level: "B2",
+    text: "I wish I _____ more careful yesterday.",
+    options: ["am","was","were","had been"], correct: 3,
+    explanation: "Wishes about past regrets use 'had + past participle': 'I wish I had been'."
+  },
+
+  // ── SPEAKING (24-25) ── (student reads aloud)
+  {
+    type: "speaking", section: "speaking", level: "B1",
+    passage: "Technology plays an important role in our daily lives. We use smartphones to communicate, laptops to study, and the internet to access information from around the world. While technology has many benefits, it is important to use it responsibly and not let it control our lives.",
+    text: "Read the following paragraph aloud clearly and naturally. Take your time.",
+    instruction: "Press Record, read the text, then press Stop when finished."
+  },
+  {
+    type: "speaking", section: "speaking", level: "B2",
+    passage: "Throughout history, great leaders have inspired people to overcome extraordinary challenges. Whether facing war, poverty, or injustice, these individuals demonstrated courage, resilience, and the ability to unite communities toward a shared goal. Their legacy reminds us that determined individuals can truly change the course of history.",
+    text: "Read this paragraph aloud with expression and confidence.",
+    instruction: "Press Record, read the text clearly, then press Stop when done."
+  }
+];
+
+// ══════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════
+let currentQ = 0;
+let score = 0;
+let answers = [];
+let answered = [];
+let startTime;
+let mediaRecorder = null;
+let recordedChunks = [];
+let recordingURL = null;
+let recordingDone = false;
+
+// ══════════════════════════════════════════
+//  START TEST
+// ══════════════════════════════════════════
+function startTest() {
+  const name = document.getElementById('studentName').value.trim();
+  const age  = document.getElementById('studentAge').value.trim();
+  const grade= document.getElementById('studentGrade').value;
+  if (!name) { alert('Please enter your full name.'); return; }
+  if (!age)  { alert('Please enter your age.'); return; }
+
+  answers = new Array(questions.length).fill(null);
+  answered = new Array(questions.length).fill(false);
+  startTime = Date.now();
+
+  document.getElementById('pageInfo').classList.add('hidden');
+  document.getElementById('pageTest').classList.remove('hidden');
+  renderQuestion(0);
+}
+
+// ══════════════════════════════════════════
+//  RENDER QUESTION
+// ══════════════════════════════════════════
+function renderQuestion(idx) {
+  currentQ = idx;
+  const q = questions[idx];
+  const area = document.getElementById('questionArea');
+
+  // reset recording state for new speaking questions
+  recordingDone = false;
+  recordingURL = null;
+  if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+    mediaRecorder.stop();
+  }
+
+  // progress
+  document.getElementById('qCounter').textContent = `Question ${idx+1} of ${questions.length}`;
+  document.getElementById('qScore').textContent = `Score: ${score}`;
+  document.getElementById('progressFill').style.width = `${((idx+1)/questions.length)*100}%`;
+
+  // nav
+  document.getElementById('btnPrev').style.display = idx > 0 ? 'block' : 'none';
+  const btnNext = document.getElementById('btnNext');
+  btnNext.disabled = false; // skip allowed
+  if (idx === questions.length-1) {
+    btnNext.textContent = 'Finish Test ✓';
+    btnNext.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+  } else if (!answered[idx]) {
+    btnNext.textContent = 'Skip Question ⏭';
+    btnNext.style.background = 'linear-gradient(135deg, #64748b, #475569)';
+  } else {
+    btnNext.textContent = 'Next →';
+    btnNext.style.background = 'linear-gradient(135deg, var(--blue), var(--navy))';
+  }
+
+  // section badge
+  const badges = { grammar:'badge-grammar', vocab:'badge-vocab', reading:'badge-reading', listening:'badge-listening', speaking:'badge-speaking' };
+  const icons  = { grammar:'📝', vocab:'🔤', reading:'📖', listening:'🎧', speaking:'🎤' };
+  const names  = { grammar:'Grammar', vocab:'Vocabulary', reading:'Reading', listening:'Listening', speaking:'Speaking' };
+
+  let html = `
+    <div>
+      <span class="section-badge ${badges[q.section]}">${icons[q.section]} ${names[q.section]}</span>
+      <span class="level-tag">${q.level}</span>
+    </div>
+  `;
+
+  // READING PASSAGE
+  if (q.type === 'reading') {
+    html += `<div class="reading-passage">${q.passage}</div>`;
+  }
+
+  // LISTENING
+  if (q.type === 'listening') {
+    html += `
+      <div class="listen-box">
+        <p>🎧 Click the button to hear the audio, then answer the question below.</p>
+        <button class="btn-listen" id="listenBtn" onclick="speakText('${escapeText(q.audio)}')">
+          ▶ Play Audio
+        </button>
+      </div>
+    `;
+  }
+
+  // SPEAKING
+  if (q.type === 'speaking') {
+    html += `
+      <div class="speaking-passage">
+        <div class="sp-label">📖 Read this passage aloud:</div>
+        <p>${q.passage}</p>
+      </div>
+      <p style="font-size:0.85rem;color:var(--muted);font-weight:600;margin-bottom:10px;">
+        ${q.instruction}
+      </p>
+      <div class="record-controls">
+        <button class="btn-record" id="btnRec" onclick="startRecording()">🎤 Start Recording</button>
+        <button class="btn-record" id="btnStop" onclick="stopRecording()" disabled style="background:#64748b">⏹ Stop</button>
+      </div>
+      <div class="record-status" id="recStatus">Press Start Recording when ready.</div>
+      <div id="audioPlayback"></div>
+    `;
+
+    // For speaking: enable Next after short delay or auto-enable
+    html += ``;
+  }
+
+  // QUESTION TEXT
+  html += `<p class="q-text">${q.text}</p>`;
+
+  // OPTIONS (not for speaking)
+  if (q.type !== 'speaking') {
+    html += `<div class="options" id="optionsDiv">`;
+    const letters = ['A','B','C','D'];
+    q.options.forEach((opt, i) => {
+      let cls = '';
+      if (answered[idx]) {
+        if (i === q.correct)           cls = 'correct disabled';
+        else if (i === answers[idx])   cls = 'wrong disabled';
+        else                           cls = 'disabled';
+      } else {
+        if (i === answers[idx])        cls = 'selected';
+      }
+      html += `
+        <div class="option ${cls}" onclick="selectOption(${i})" id="opt${i}">
+          <span class="option-letter">${letters[i]}</span> ${opt}
+        </div>
+      `;
+    });
+    html += `</div>`;
+
+    // Feedback
+    if (answered[idx]) {
+      const skipped = answers[idx] === -1;
+      const correct = !skipped && answers[idx] === q.correct;
+      html += `
+        <div class="feedback-box ${correct ? 'correct-fb' : 'wrong-fb'}" id="feedbackBox" style="display:block">
+          ${skipped
+            ? `⏭ Skipped. <span class="correct-ans">Correct answer: ${q.options[q.correct]}</span>. ${q.explanation}`
+            : correct
+              ? `✅ Correct! ${q.explanation}`
+              : `❌ Not quite. <span class="correct-ans">Correct answer: ${q.options[q.correct]}</span>. ${q.explanation}`
+          }
+        </div>
+      `;
+    }
+  } else {
+    // Speaking feedback placeholder
+    if (answered[idx]) {
+      html += `
+        <div class="feedback-box correct-fb" id="feedbackBox" style="display:block">
+          ✅ Great job! Your recording has been saved. Mr. Mostafa Nassar will evaluate your pronunciation and fluency.
+        </div>
+      `;
+    }
+  }
+
+  area.innerHTML = html;
+
+  // re-enable recording after render
+  if (q.type === 'speaking' && answered[idx]) {
+    document.getElementById('btnNext').disabled = false;
+  }
+}
+
+// ══════════════════════════════════════════
+//  SELECT OPTION
+// ══════════════════════════════════════════
+function selectOption(i) {
+  if (answered[currentQ]) return;
+  answers[currentQ] = i;
+
+  const q = questions[currentQ];
+  const correct = i === q.correct;
+
+  answered[currentQ] = true;
+  if (correct) score++;
+
+  document.getElementById('qScore').textContent = `Score: ${score}`;
+  document.getElementById('btnNext').disabled = false;
+  renderQuestion(currentQ);
+}
+
+// ══════════════════════════════════════════
+//  NEXT / NAVIGATE
+// ══════════════════════════════════════════
+function handleNext() {
+  // If not answered yet, mark as skipped (counts as wrong)
+  if (!answered[currentQ] && questions[currentQ].type !== 'speaking') {
+    answered[currentQ] = true;
+    answers[currentQ] = -1; // skipped = wrong
+    // show skipped feedback briefly then move
+  }
+  if (currentQ < questions.length - 1) {
+    goQuestion(currentQ + 1);
+  } else {
+    showResult();
+  }
+}
+
+function goQuestion(idx) {
+  if (idx < 0 || idx >= questions.length) return;
+  recordingURL = null;
+  renderQuestion(idx);
+}
+
+// ══════════════════════════════════════════
+//  TEXT-TO-SPEECH (Listening)
+// ══════════════════════════════════════════
+function escapeText(t) {
+  return t.replace(/'/g, "\\'").replace(/"/g, '\\"');
+}
+
+function speakText(text) {
+  window.speechSynthesis.cancel();
+  const btn = document.getElementById('listenBtn');
+  if (btn) { btn.textContent = '⏳ Playing...'; btn.disabled = true; }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'en-GB';
+  utter.rate = 0.88;
+  utter.pitch = 1.0;
+  utter.onend = () => {
+    if (btn) { btn.textContent = '▶ Play Again'; btn.disabled = false; }
+  };
+  window.speechSynthesis.speak(utter);
+}
+
+// ══════════════════════════════════════════
+//  RECORDING (Speaking)
+// ══════════════════════════════════════════
+async function startRecording() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    recordedChunks = [];
+    mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder.ondataavailable = e => { if (e.data.size > 0) recordedChunks.push(e.data); };
+    mediaRecorder.onstop = () => {
+      const blob = new Blob(recordedChunks, { type: 'audio/webm' });
+      recordingURL = URL.createObjectURL(blob);
+      document.getElementById('audioPlayback').innerHTML =
+        `<audio controls src="${recordingURL}"></audio>`;
+      document.getElementById('recStatus').textContent = '✅ Recording saved! You can play it back.';
+      document.getElementById('recStatus').className = 'record-status';
+
+      // mark as answered
+      answered[currentQ] = true;
+      answers[currentQ] = 'recorded';
+      document.getElementById('btnNext').disabled = false;
+
+      const fb = document.createElement('div');
+      fb.className = 'feedback-box correct-fb';
+      fb.style.display = 'block';
+      fb.style.marginTop = '12px';
+      fb.innerHTML = '✅ Great job! Your recording has been saved. Mr. Mostafa Nassar will evaluate your pronunciation and fluency.';
+      document.getElementById('audioPlayback').after(fb);
+
+      stream.getTracks().forEach(t => t.stop());
+    };
+    mediaRecorder.start();
+    document.getElementById('btnRec').classList.add('recording');
+    document.getElementById('btnRec').textContent = '🔴 Recording...';
+    document.getElementById('btnRec').disabled = true;
+    document.getElementById('btnStop').disabled = false;
+    document.getElementById('recStatus').textContent = '🔴 Recording in progress — read the passage now!';
+    document.getElementById('recStatus').className = 'record-status active';
+  } catch(err) {
+    alert('Microphone access denied. Please allow microphone access and try again.');
+  }
+}
+
+function stopRecording() {
+  if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+    mediaRecorder.stop();
+    document.getElementById('btnRec').classList.remove('recording');
+    document.getElementById('btnRec').textContent = '🎤 Record Again';
+    document.getElementById('btnRec').disabled = false;
+    document.getElementById('btnStop').disabled = true;
+  }
+}
+
+// ══════════════════════════════════════════
+//  RESULT
+// ══════════════════════════════════════════
+function showResult() {
+  document.getElementById('pageTest').classList.add('hidden');
+  document.getElementById('pageResult').classList.remove('hidden');
+
+  const total = questions.filter(q => q.type !== 'speaking').length;
+  const mcqScore = answers.filter((a,i) => questions[i].type !== 'speaking' && a !== -1 && a === questions[i].correct).length;
+  const pct = Math.round((mcqScore / total) * 100);
+  const elapsed = Math.round((Date.now() - startTime) / 60000);
+
+  let level, icon, desc;
+  if (pct >= 80) {
+    level='B2'; icon='🏆';
+    desc='<b>Upper-Intermediate (B2)</b> — Excellent work! You can understand complex texts and express yourself fluently on a wide range of topics. You are ready for advanced English courses and can interact with native speakers with a good degree of fluency.';
+  } else if (pct >= 60) {
+    level='B1'; icon='🌟';
+    desc='<b>Intermediate (B1)</b> — Well done! You can handle most everyday situations in English. You understand the main points of clear texts and can produce simple connected text. Focus on expanding vocabulary and complex grammar.';
+  } else if (pct >= 40) {
+    level='A2'; icon='📈';
+    desc='<b>Elementary (A2)</b> — Good start! You can communicate in simple, routine tasks. You understand frequently used expressions and basic phrases. Keep practising grammar structures and build your vocabulary.';
+  } else {
+    level='A1'; icon='🌱';
+    desc='<b>Beginner (A1)</b> — You are at the beginning of your English learning journey. Focus on basic vocabulary, simple sentences, and everyday expressions. With practice, you will improve quickly!';
+  }
+
+  document.getElementById('resIcon').textContent = icon;
+  document.getElementById('resLevel').textContent = level;
+  document.getElementById('resScore').textContent = `You scored ${mcqScore} out of ${total} (${pct}%)`;
+  const skippedCount = answers.filter((a,i) => questions[i].type !== 'speaking' && a === -1).length;
+  document.getElementById('rCorrect').textContent = mcqScore;
+  document.getElementById('rWrong').textContent = (total - mcqScore - skippedCount);
+  document.getElementById('rSkipped').textContent = skippedCount;
+  document.getElementById('rPercent').textContent = pct + '%';
+  document.getElementById('rTime').textContent = elapsed + 'm';
+  document.getElementById('levelDesc').innerHTML = desc;
+
+  // Auto-submit to Google Form after short delay
+  setTimeout(() => {
+    submitToGoogleForm();
+  }, 800);
+}
+
+// ══════════════════════════════════════════
+//  SUBMIT TO GOOGLE FORM
+// ══════════════════════════════════════════
+function submitToGoogleForm() {
+  const name  = document.getElementById('studentName').value.trim();
+  const age   = document.getElementById('studentAge').value.trim();
+  const grade = document.getElementById('studentGrade').value;
+  const phone = document.getElementById('studentPhone').value.trim() || '—';
+
+  // ── Per-section scores ──
+  function sectionScore(sec) {
+    const qs = questions.map((q,i) => ({q,i})).filter(({q}) => q.section === sec && q.type !== 'speaking');
+    const correct = qs.filter(({q,i}) => answers[i] === q.correct).length;
+    return `${correct}/${qs.length}`;
+  }
+
+  const grammarScore  = sectionScore('grammar');
+  const readingScore  = sectionScore('reading');
+  const listeningScore= sectionScore('listening');
+  const vocabScore    = sectionScore('vocab');
+  const pronScore     = answers.some((a,i) => questions[i].type === 'speaking' && a === 'recorded') ? 'Recorded ✓' : 'Not recorded';
+
+  const total    = questions.filter(q => q.type !== 'speaking').length;
+  const mcqScore = answers.filter((a,i) => questions[i].type !== 'speaking' && a !== -1 && a === questions[i].correct).length;
+  const pct      = Math.round((mcqScore / total) * 100);
+  const level    = pct>=80?'B2':pct>=60?'B1':pct>=40?'A2':'A1';
+  const overall  = `${mcqScore}/${total} (${pct}%) — ${level}`;
+
+  // Today's date
+  const today = new Date();
+  const mm = String(today.getMonth()+1).padStart(2,'0');
+  const dd = String(today.getDate()).padStart(2,'0');
+  const yyyy = today.getFullYear();
+
+  // Strengths & improvements based on level
+  const strengthsMap = {
+    B2: 'Strong grammar, rich vocabulary, excellent comprehension of complex texts.',
+    B1: 'Good grasp of everyday grammar and vocabulary, solid reading comprehension.',
+    A2: 'Can handle basic grammar and common expressions in familiar contexts.',
+    A1: 'Understands simple words and phrases; enthusiastic learner.'
+  };
+  const improvementsMap = {
+    B2: 'Focus on advanced writing skills, idiomatic expressions, and C1-level grammar.',
+    B1: 'Work on complex grammar structures (conditionals, passive voice) and expand vocabulary.',
+    A2: 'Practice present/past tenses, reading comprehension, and build everyday vocabulary.',
+    A1: 'Focus on basic sentence structure, common verbs, numbers, and simple conversations.'
+  };
+
+  // ── Send results to Google Apps Script Web App ──
+  // ⚠️ Paste your Web App URL here after deploying the Apps Script (ends with /exec)
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyBPRIR21ymLQMkVaaq5dieS02lkZdqqTK_kGSap_36PopBmnVYYarz8Wb86BZhHKv96g/exec";
+
+  const payload = {
+    name, age, grade, phone,
+    date: `${mm}/${dd}/${yyyy}`,
+    grammarScore, readingScore, listeningScore, vocabScore, pronScore,
+    overall, level,
+    strengths: strengthsMap[level],
+    improvements: improvementsMap[level]
+  };
+
+  fetch(WEB_APP_URL, {
+    method: 'POST',
+    mode: 'no-cors', // Apps Script Web Apps don't return CORS headers; we can't read the response, but the request still goes through
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // text/plain avoids a CORS preflight request
+    body: JSON.stringify(payload)
+  }).catch(err => console.error('Submission error:', err));
+
+  // Save lock to localStorage
+  const dateStr = new Date().toLocaleDateString('en-GB', {day:'2-digit',month:'short',year:'numeric', hour:'2-digit',minute:'2-digit'});
+  localStorage.setItem('mntest_done', 'yes');
+  localStorage.setItem('mntest_date', dateStr);
+  localStorage.setItem('mntest_result', overall);
+
+  // Show confirmation in page
+  const statusDiv = document.getElementById('submitStatus');
+  if (statusDiv) {
+    statusDiv.innerHTML = `
+      <div style="padding:14px 18px;background:#f0fdf4;border-radius:12px;border:1.5px solid #86efac;font-size:0.88rem;color:#065f46;font-weight:700;line-height:1.7;">
+        ✅ Results sent automatically to Mr. Mostafa Nassar!<br>
+        <span style="font-weight:400;color:#047857;">He will review your performance and contact you soon.</span>
+      </div>`;
+  }
+}
+
+function retakeTest() {
+  localStorage.removeItem('mntest_done');
+  localStorage.removeItem('mntest_date');
+  localStorage.removeItem('mntest_result');
+  location.reload();
+}
+</script>
+</body>
+</html>
